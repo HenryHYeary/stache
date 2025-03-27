@@ -2,9 +2,11 @@
  
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { z } from "zod";
 
 import { Button } from "@/components/ui/button"
+import Image from "next/image";
 import {
   Form,
   FormControl,
@@ -23,6 +25,9 @@ const formSchema = z.object({
 type FormType = "sign-in" | "sign-up";
 
 const AuthForm = ({ type }: { type: FormType }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
 
    // 1. Define your form.
    const form = useForm<z.infer<typeof formSchema>>({
@@ -42,26 +47,52 @@ const AuthForm = ({ type }: { type: FormType }) => {
     return <>
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
-          <h1 className="text-[34px] leading-[42px] font-bold text-center text-light-100 md:text-left !important">
+          <h1 className="text-[34px] leading-[42px] font-bold text-center text-light-100 md:text-left">
             {type === "sign-in" ? "Sign In" : "Sign Up"}
           </h1>
           <FormField
             control={form.control}
-            name="username"
+            name="fullName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
-                <FormControl>
-                  <Input placeholder="shadcn" {...field} />
-                </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
-                <FormMessage />
+                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1">
+                  <FormLabel className="text-light-100 pt-2 body-2 w-full">Full Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your full name" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2" {...field} />
+                  </FormControl>
+                </div>
+                
+                <FormMessage className="text-red body-2 ml-4" />
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full">Submit</Button>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1">
+                  <FormLabel className="text-light-100 pt-2 body-2 w-full">Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your email" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2" {...field} />
+                  </FormControl>
+                </div>
+                
+                <FormMessage className="text-red body-2 ml-4" />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="bg-[#FA7275] hover:bg-[#EA6365] transition-all rounded-full w-full h-[66px]" disabled={isLoading}>
+            {type === "sign-in" ? "Sign In" : "Sign Up"}
+
+            {isLoading && (
+              <Image src="/assets/icons/loader.svg" alt="loader" width={24} height={24} className="ml-2 animate-spin" />
+            )}
+          </Button>
+
+          {errorMessage && (
+            <p className="error-message">*{errorMessage}</p>
+          )}
         </form>
       </Form>
     </>

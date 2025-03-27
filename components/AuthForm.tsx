@@ -57,13 +57,13 @@ const AuthForm = ({ type }: { type: FormType }) => {
             render={({ field }) => (
               <FormItem>
                 <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1">
-                  <FormLabel className="text-light-100 pt-2 body-2 w-full">Full Name</FormLabel>
+                  <FormLabel className="text-light-100 pt-2 text-[14px] leading-[20px] font-normal w-full">Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your full name" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2" {...field} />
+                    <Input placeholder="Enter your full name" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 text-[14px] leading-[20px] font-normal" {...field} />
                   </FormControl>
                 </div>
                 
-                <FormMessage className="text-red body-2 ml-4" />
+                <FormMessage className="text-[#FF7474] text-[14px] leading-[20px] font-normal ml-4" />
               </FormItem>
             )}
           />
@@ -74,13 +74,13 @@ const AuthForm = ({ type }: { type: FormType }) => {
             render={({ field }) => (
               <FormItem>
                 <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1">
-                  <FormLabel className="text-light-100 pt-2 body-2 w-full">Email</FormLabel>
+                  <FormLabel className="text-light-100 pt-2 text-[14px] leading-[20px] font-normal w-full">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your email" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 body-2" {...field} />
+                    <Input placeholder="Enter your email" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 text-[14px] leading-[20px] font-normal" {...field} />
                   </FormControl>
                 </div>
                 
-                <FormMessage className="text-red body-2 ml-4" />
+                <FormMessage className="text-[#FF7474] text-[14px] leading-[20px] font-normal ml-4" />
               </FormItem>
             )}
           />
@@ -93,9 +93,9 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </Button>
 
           {errorMessage && (
-            <p className="error-message">*{errorMessage}</p>
+            <p className="text-[#333F4E] text-[14px] leading-[20px] font-normal mx-auto w-fit rounded-xl bg-error/5 px-8 py-4 text-center text-error">*{errorMessage}</p>
           )}
-          <div className="body-2 flex justify-center">
+          <div className="text-[14px] leading-[20px] font-normal flex justify-center">
             <p className="text-[#333F4E]">
               {type === "sign-in"
               ? "Don't have an account?"

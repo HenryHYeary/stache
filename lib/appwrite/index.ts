@@ -19,7 +19,6 @@ export const createSessionClient = async () => {
     get account() {
       return new Account(client);
     },
-
     get databases() {
       return new Databases(client);
     }
@@ -36,15 +35,12 @@ export const createAdminClient = async () => {
     get account() {
       return new Account(client);
     },
-
     get databases() {
       return new Databases(client);
     },
-
     get storage() {
       return new Storage(client);
     },
-
     get avatars() {
       return new Avatars(client)
     }

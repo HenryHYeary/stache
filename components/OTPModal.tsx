@@ -16,9 +16,11 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import Image from "next/image";
 import React, { useState } from "react";
+import { Button } from "./ui/button";
 
-const OtpModal = () => {
+const OtpModal = ({accountId, email} : { accountId: string, email: string}) => {
   const [isOpen, setIsOpen] = useState(true);
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -42,31 +44,66 @@ const OtpModal = () => {
 
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>
-            Are you absolutely sure?
+      <AlertDialogContent className="space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none">
+        <AlertDialogHeader className="relative flex justify-center">
+          <AlertDialogTitle className="text-center text-[24px] leading-[36px] font-bold">
+            Enter Your OTP
+            <Image 
+              src="/assets/icons/close-dark.svg"
+              alt="close"
+              width={20}
+              height={20}
+              onClick={() => setIsOpen(false)}
+              className="absolute -right-1 -top-7 cursor-pointer sm:-right-2 sm:-top-4"
+            />
           </AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your account
-            and remove your data from our servers.
+          <AlertDialogDescription className="text-[14px] leading-[20px] font-semibold text-center text-light-100">
+            We&apos;ve sent a code to<span className="pl-1 text-[#FA7275]">{email}</span>
           </AlertDialogDescription>
         </AlertDialogHeader>
 
         <InputOTP maxLength={6} value={password} onChange={setPassword}>
-          <InputOTPGroup>
-            <InputOTPSlot index={0}/>
-            <InputOTPSlot index={1}/>
-            <InputOTPSlot index={2}/>
-            <InputOTPSlot index={3}/>
-            <InputOTPSlot index={4}/>
-            <InputOTPSlot index={5}/>
+          <InputOTPGroup className="w-full flex gap-1 sm:gap-2 justify-between">
+            <InputOTPSlot index={0} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={1} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={2} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={3} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={4} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={5} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
           </InputOTPGroup>
         </InputOTP>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <div className="w-full flex-col gap-4">
+            <AlertDialogAction 
+              onClick={handleSubmit} 
+              className="bg-[#FA7275] text-[14px] leading-[20px] font-medium hover:bg-[#EA6365] transition-all rounded-full h-12 w-full" 
+              type="button"
+            >
+              Submit
+              {isLoading && (
+                <Image 
+                src="/assets/icons/loader.svg"
+                alt="loader"
+                width={24}
+                height={24}
+                className="ml-2 animate-spin"
+                />
+              )}
+            </AlertDialogAction>
+
+            <div className="mt-2 text-[14px] leading-[20px] font-semibold text-[#333F4E] text-center">
+              Didn&apos;t get a code?
+              <Button 
+                type="button" 
+                variant="link" 
+                className="pl-1 text-[#FA7275]" 
+                onClick={handleResendOtp}
+              >
+                Click to resend
+              </Button>
+            </div>
+          </div>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

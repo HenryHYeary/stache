@@ -74,7 +74,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
             name="fullName"
             render={({ field }) => (
               <FormItem>
-                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1">
+                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 drop-shadow-lg">
                   <FormLabel className="text-light-100 pt-2 text-[14px] leading-[20px] font-normal w-full">Full Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your full name" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 text-[14px] leading-[20px] font-normal" {...field} />
@@ -91,7 +91,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 shadow-drop-1">
+                <div className="flex h-[78px] flex-col justify-center rounded-xl border border-light-300 px-4 drop-shadow-lg">
                   <FormLabel className="text-light-100 pt-2 text-[14px] leading-[20px] font-normal w-full">Email</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter your email" className="border-none shadow-none p-0 shad-no-focus placeholder:text-light-200 text-[14px] leading-[20px] font-normal" {...field} />
@@ -102,7 +102,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="bg-[#FA7275] hover:bg-[#EA6365] transition-all rounded-full w-full h-[66px]" disabled={isLoading}>
+          <Button type="submit" className="bg-[#FA7275] hover:bg-[#EA6365] transition-all rounded-full w-full h-[66px] drop-shadow-md" disabled={isLoading}>
             {type === "sign-in" ? "Sign In" : "Sign Up"}
 
             {isLoading && (

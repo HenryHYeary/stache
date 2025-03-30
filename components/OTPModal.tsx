@@ -70,12 +70,12 @@ const OTPModal = ({accountId, email} : { accountId: string, email: string}) => {
 
         <InputOTP maxLength={6} value={password} onChange={setPassword}>
           <InputOTPGroup className="w-full flex gap-1 sm:gap-2 justify-between">
-            <InputOTPSlot index={0} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
-            <InputOTPSlot index={1} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
-            <InputOTPSlot index={2} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
-            <InputOTPSlot index={3} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
-            <InputOTPSlot index={4} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
-            <InputOTPSlot index={5} className="text-[40px] font-medium rounded-lg ring-[#FA7275] shadow-drop-1 text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={0} className="text-[40px] font-medium rounded-lg ring-[#FA7275] drop=shadow-md text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={1} className="text-[40px] font-medium rounded-lg ring-[#FA7275] drop=shadow-md text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={2} className="text-[40px] font-medium rounded-lg ring-[#FA7275] drop=shadow-md text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={3} className="text-[40px] font-medium rounded-lg ring-[#FA7275] drop=shadow-md text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={4} className="text-[40px] font-medium rounded-lg ring-[#FA7275] drop=shadow-md text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
+            <InputOTPSlot index={5} className="text-[40px] font-medium rounded-lg ring-[#FA7275] drop=shadow-md text-[#EA6365] justify-center flex border-2 border-[#F2F5F9] size-12 md:size-16 gap-5"/>
           </InputOTPGroup>
         </InputOTP>
 

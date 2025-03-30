@@ -1,6 +1,6 @@
 "use client";
 
-import { navItems } from "@/constants";
+import { avatarPlaceholderUrl, navItems } from "@/constants";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,14 +34,43 @@ const Sidebar = () => {
         <ul className="flex flex-1 flex-col gap-6">
           {navItems.map(({ url, name, icon }) => (
             <Link href={url} key={name} className="lg:w-full">
-              <li className={cn("flex text-light-100 gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center h5 lg:px-[30px] h-[52px] lg:rounded-full", pathname === url && "bg-[#FA7275] text-white shadow-drop-2")}>
-                <Image src={icon} alt={name} width={24} height={24} />
-                <p>{name}</p>
+              <li className={cn(
+                "flex text-[#333F4E] gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center text-[16px] leading-[24px] font-semibold lg:px-[30px] h-[52px] w-[52px] lg:rounded-full", 
+                pathname === url && "bg-[#FA7275] text-white drop-shadow-lg")}>
+                <Image 
+                  src={icon} 
+                  alt={name} 
+                  width={24} 
+                  height={24}
+                  className={cn(
+                    "w-6 filter invert opacity-25",
+                    pathname === url && "invert-0 opacity-100"
+                  )}
+                />
+                <p className="hidden lg:block">{name}</p>
               </li>
             </Link>
           ))}
         </ul>
       </nav>
+
+      <Image 
+        src="/assets/images/files-2.png"
+        alt="logo"
+        width={506}
+        height={418}
+        className="w-full"
+      />
+
+      <div className="mt-4 flex items-center justify-center gap-2 rounded-full bg-brand/10 p-1 text-light-100 lg:justify-start lg:p-3">
+        <Image 
+          src={avatarPlaceholderUrl}
+          alt="Avatar"
+          width={44}
+          height={44}
+          className="aspect-square w-10 rounded-full object-cover"
+        />
+      </div>
     </aside>
   )
 }

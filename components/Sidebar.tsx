@@ -7,7 +7,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  fullName: string,
+  avatar: string,
+  email: string
+}
+
+const Sidebar = ({ fullName, avatar, email }: SidebarProps) => {
   const pathname = usePathname();
 
   return (
@@ -64,12 +70,17 @@ const Sidebar = () => {
 
       <div className="mt-4 flex items-center justify-center gap-2 rounded-full bg-brand/10 p-1 text-light-100 lg:justify-start lg:p-3">
         <Image 
-          src={avatarPlaceholderUrl}
+          src={avatar}
           alt="Avatar"
           width={44}
           height={44}
           className="aspect-square w-10 rounded-full object-cover"
         />
+
+        <div className="hidden lg:block">
+          <p className="text-[14px] leading-[20px] font-semibold capitalize">{fullName}</p>
+          <p className="text-[12px] leading-[16px] font-normal">{email}</p>
+        </div>
       </div>
     </aside>
   )

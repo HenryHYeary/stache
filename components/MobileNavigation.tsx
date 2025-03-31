@@ -11,11 +11,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { Button } from "./ui/button";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Separator } from "./ui/separator";
 import { navItems } from "@/constants";
 import Link from "next/link";
+import FileUploader from "./FileUploader";
 
 
 interface MobileNavigationProps {
@@ -93,6 +95,21 @@ const MobileNavigation = ({ ownerId, accountId, fullName, avatar, email } :
           ))}
           </ul>
         </nav>
+        <Separator className="my-5 bg-[#A3B2C7]/20" />
+
+        <div className="flex flex-col justify-between gap-5 pb-5">
+          <FileUploader />
+          <Button type="submit" className="flex-center h-[52px] min-w-[54px] items-center rounded-full bg-[#FA7275]/10 p-0 text-[#FA7275] shadow-none transition-all hover:bg-[#FA7275]/20"
+          onClick={() => {}}>
+            <Image 
+              src="/assets/icons/logout.svg"
+              alt="logo"
+              width={24}
+              height={24}
+            />
+            <p>Logout</p>
+          </Button>
+        </div>
       </SheetContent>
     </Sheet>
   </header>

@@ -18,6 +18,7 @@ import { Separator } from "./ui/separator";
 import { navItems } from "@/constants";
 import Link from "next/link";
 import FileUploader from "./FileUploader";
+import { signOutUser } from "@/lib/actions/user.actions";
 
 
 interface MobileNavigationProps {
@@ -100,7 +101,7 @@ const MobileNavigation = ({ ownerId, accountId, fullName, avatar, email } :
         <div className="flex flex-col justify-between gap-5 pb-5">
           <FileUploader />
           <Button type="submit" className="flex-center h-[52px] min-w-[54px] items-center rounded-full bg-[#FA7275]/10 p-0 text-[#FA7275] shadow-none transition-all hover:bg-[#FA7275]/20"
-          onClick={() => {}}>
+          onClick={ async () => await signOutUser()}>
             <Image 
               src="/assets/icons/logout.svg"
               alt="logo"

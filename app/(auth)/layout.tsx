@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex min-h-screen">
-    <section className="bg-[#EA6365] p-10 hidden w-1/2 items-center justify-center lg:flex xl:w-2/5">
+    <section className="bg-[#FA7275] p-10 hidden w-1/2 items-center justify-center lg:flex xl:w-2/5">
       <div className="flex max-h-[800px] max-w-[430px] flex-col justify-center space-y-12">
         <Image src="/assets/icons/logo-full.svg" 
           alt="logo" 
@@ -13,7 +13,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           className="h-auto" 
         />
         <div className="space-y-5 text-white">
-          <h1 className="text-[#ADD8E6] font-semibold">Manage your files</h1>
+          <h1 className="font-semibold">stache - a place for all of your file needs</h1>
+          <h1 className="font-semibold">Manage your files</h1>
           <p className="text-[16px] leading-[24px] font-semibold">
             This is a place where you can store all of your documents
           </p>
